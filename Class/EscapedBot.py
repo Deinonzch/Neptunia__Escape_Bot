@@ -19,4 +19,3 @@ class EscapedBot:
             PressKey(L)
             time.sleep(.5)
             ReleaseKey(L)
-            print(self.undone)
