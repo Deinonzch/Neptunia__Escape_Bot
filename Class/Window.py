@@ -6,7 +6,6 @@ def events(bot):
     for event in pygame.event.get():
         keyboard_events(event.type, bot)
         clicked_exit_button_of_window(event.type, bot)
-        print('I work')
 
 
 def keyboard_events(event_type, bot):
@@ -26,8 +25,3 @@ def clicked_exit_button_of_window(event_type, bot):
         pygame.quit()
         bot.finish()
         sys.exit(0)
-
-
-def events_control():
-    while True:
-        events()
