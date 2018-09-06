@@ -1,8 +1,5 @@
 from unittest import TestCase
 from Class import EscapedBot
-import keyboard
-import threading
-
 
 class TestEscapedBot(TestCase):
     def test_init(self):
