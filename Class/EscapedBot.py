@@ -16,7 +16,7 @@ class EscapedBot:
     def restarted(self):
         self.stop = False
 
-    def _listener(self):
+    def listener(self):
         while self.undone:
             self.press_end_key()
             self.press_stop_key()

@@ -13,7 +13,7 @@ pygame.display.set_caption("My Game")
 bot = EscapedBot()
 
 t = threading.Thread(target=bot.escape, name='thread1')
-s = threading.Thread(target=bot._listener, name='thread2')
+s = threading.Thread(target=bot.listener, name='thread2')
 
 t.start()
 s.start()
