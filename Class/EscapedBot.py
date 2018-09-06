@@ -35,7 +35,6 @@ class EscapedBot:
             time.sleep(0.5)
             keyboard.press_and_release('l')
 
-
     def press_end_key(self):
         if keyboard.is_pressed('q'):
             self.finished()
