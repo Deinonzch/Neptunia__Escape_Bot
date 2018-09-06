@@ -1,6 +1,7 @@
 from unittest import TestCase
 from Class import EscapedBot
 
+
 class TestEscapedBot(TestCase):
     def test_init(self):
         bot = EscapedBot.EscapedBot()
