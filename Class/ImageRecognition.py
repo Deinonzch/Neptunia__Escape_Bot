@@ -10,7 +10,7 @@ import re
 regex_1 = re.compile(r'.*(SPSkills)')
 regex_2 = re.compile(r'.*(EXEDrive)')
 regex_3 = re.compile(r'.*(([Aa])ttack)')
-regex_4 = re.compile(r'.*(([Dd])efend)')
+regex_4 = re.compile(r'.*(([Dd])ef[ae]nd)')
 regex_5 = re.compile(r'.*(HDD0N)')
 regex_6 = re.compile(r'.*(([Ss])witch)')
 regex_7 = re.compile(r'.*(([Ii])tem)')
@@ -32,8 +32,13 @@ areas = [area1, area2, area3, attack_menu_button_4]
 
 
 def get_text(place):
-    menu_attack = PIL.ImageGrab.grab().crop(place)
-    return pytesseract.image_to_string(menu_attack).replace(' ', '')
+    text = ''
+    try:
+        menu_attack = PIL.ImageGrab.grab().crop(place)
+        text = pytesseract.image_to_string(menu_attack).replace(' ', '')
+    except:
+        print('I couldn\'t make a screenshoot')
+    return text
 
 
 def is_defend(text):
