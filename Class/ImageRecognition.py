@@ -40,8 +40,43 @@ def get_text(place):
     return text
 
 
+def get_menu_attack_text():
+    texts = []
+    for button in attack_menu_buttons:
+        texts.append(get_text(button))
+    return texts
+
+
 def is_defend(text):
     if re.findall(regex_defend, text):
+        return True
+    else:
+        return False
+
+
+def is_attack(text):
+    if re.findall(regex_attack, text):
+        return True
+    else:
+        return False
+
+
+def is_exedrive(text):
+    if re.findall(regex_exedrive, text):
+        return True
+    else:
+        return False
+
+
+def is_spskills(text):
+    if re.findall(regex_spskills, text):
+        return True
+    else:
+        return False
+
+
+def is_first_menu_attack(texts):
+    if is_spskills(texts[0]) or is_exedrive(texts[1]) or is_attack(texts[2]) or is_defend(texts[3]):
         return True
     else:
         return False

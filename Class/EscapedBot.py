@@ -1,6 +1,5 @@
 import keyboard
-from Class.ImageRecognition import is_defend, is_escape, get_text, attack_menu_button_4
-import time
+from Class.ImageRecognition import get_menu_attack_text, is_first_menu_attack, is_defend, is_escape
 
 
 class EscapedBot:
@@ -25,13 +24,25 @@ class EscapedBot:
 
     def escape(self):
         while self.undone:
-            text = get_text(attack_menu_button_4)
-            if is_defend(text):
-                keyboard.press_and_release('r')
-            time.sleep(0.5)
-            if is_escape(text):
-                keyboard.press_and_release('l')
+            texts = get_menu_attack_text()
+            self.change_attack_menu_if_is_first(texts)
+            self.is_escape_button(texts[3])
             self.have_break()
+
+    @staticmethod
+    def defend_move(text):
+        if is_defend(text):
+            keyboard.press_and_release('r')
+
+    @staticmethod
+    def change_attack_menu_if_is_first(texts):
+        if is_first_menu_attack(texts):
+            keyboard.press_and_release('r')
+
+    @staticmethod
+    def is_escape_button(text):
+        if is_escape(text):
+            keyboard.press_and_release('l')
 
     def press_end_key(self):
         if keyboard.is_pressed('q'):
