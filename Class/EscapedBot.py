@@ -1,5 +1,5 @@
 import keyboard
-from Class.ImageRecognition import get_menu_attack_text, is_first_menu_attack, is_escape
+from Class.ImageRecognition import get_texts_from_menu_attack, is_first_menu_attack, is_escape
 
 
 class EscapedBot:
@@ -36,7 +36,7 @@ class EscapedBot:
 
     def escape(self):
         while self.undone:
-            texts = get_menu_attack_text()
+            texts = get_texts_from_menu_attack()
             self.change_attack_menu_if_is_first(texts)
             self.if_attack_menu_have_escape_button_excape(texts[3])
             self.have_break()

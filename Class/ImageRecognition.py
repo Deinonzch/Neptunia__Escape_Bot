@@ -30,7 +30,7 @@ attack_menu_button_4 = (1470, 810, 1600, 880)
 attack_menu_buttons = [attack_menu_button_1, attack_menu_button_2, attack_menu_button_3, attack_menu_button_4]
 
 
-def get_text(place):
+def get_text_from_image(place):
     text = ''
     try:
         menu_attack_button = PIL.ImageGrab.grab().crop(place)
@@ -40,10 +40,15 @@ def get_text(place):
     return text
 
 
-def get_menu_attack_text():
+def get_text_from(place):
+    text = get_text_from_image(place)
+    return text
+
+
+def get_texts_from_menu_attack():
     texts = []
     for button in attack_menu_buttons:
-        texts.append(get_text(button))
+        texts.append(get_text_from(button))
     return texts
 
 
