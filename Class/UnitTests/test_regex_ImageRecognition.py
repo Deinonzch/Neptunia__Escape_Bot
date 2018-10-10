@@ -1,21 +1,6 @@
 import unittest
 from Class.ImageRecognition import regexes_attack_menu_1, regexes_attack_menu_2
 
-''''@pytest.mark.parametrize('test_menu_1', [
-    "SPSkills",
-    "EXEDrive",
-    "Attack",
-    "Defend",
-])
-
-@pytest.mark.parametrize('test_menu_2', [
-    "HDDON",
-    "Switch",
-    "Item",
-    "Escape",
-])
-'''
-
 
 class RegexImageRecognition(unittest.TestCase):
     def test_regex_SPSkills(self):
