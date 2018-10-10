@@ -1,60 +1,63 @@
 import keyboard
-from Class.ImageRecognition import get_texts_from_menu_attack, is_first_menu_attack, is_escape
+from Class.ImageRecognition import is_first_menu_attack, is_second_menu_attack
 
 
 class EscapedBot:
     def __init__(self):
-        self.undone = True
-        self.stop = False
+        self.__undone = True
+        self.__break = False
 
     def listener(self):
-        while self.undone:
+        while self.__undone:
             self.if_end_key_is_pressed_work_is_done()
             self.if_stop_key_is_pressed_do_break()
             self.if_restart_key_is_pressed_back_to_work()
 
     def if_end_key_is_pressed_work_is_done(self):
         if keyboard.is_pressed('q'):
-            self.finished()
+            self.finish()
 
-    def finished(self):
-        self.undone = False
+    def finish(self):
+        self.__undone = False
 
     def if_stop_key_is_pressed_do_break(self):
         if keyboard.is_pressed('alt+x'):
-            self.stoped()
+            self.stop()
 
-    def stoped(self):
-        self.stop = True
+    def stop(self):
+        self.__break = True
 
     def if_restart_key_is_pressed_back_to_work(self):
         if keyboard.is_pressed('alt+z'):
-            self.restarted()
+            self.restart()
 
-    def restarted(self):
-        self.stop = False
+    def restart(self):
+        self.__break = False
 
     def escape(self):
-        while self.undone:
-            texts = get_texts_from_menu_attack()
-            self.change_attack_menu_if_is_first(texts)
-            self.if_attack_menu_have_escape_button_excape(texts[3])
+        while self.__undone:
+            self.change_menu_if_is_first_attack_menu()
+            self.excape_if_is_second_attack_menu()
             self.have_break()
 
     @staticmethod
-    def change_attack_menu_if_is_first(texts):
-        if is_first_menu_attack(texts):
-            keyboard.press_and_release('r')
+    def change_menu_if_is_first_attack_menu():
+        if is_first_menu_attack():
+            change_attack_menu()
 
     @staticmethod
-    def if_attack_menu_have_escape_button_excape(text):
-        if is_escape(text):
+    def excape_if_is_second_attack_menu():
+        if is_second_menu_attack():
             escape()
 
     def have_break(self):
-        while self.stop and self.undone:
+        while self.__break and self.__undone:
             print('I have a break')
 
 
 def escape():
     keyboard.press_and_release('l')
+
+
+def change_attack_menu():
+    keyboard.press_and_release('r')

@@ -16,12 +16,12 @@ def keyboard_events(event_type, bot):
 def exit_if_q(bot):
     if pygame.key.get_pressed()[pygame.K_q]:
         pygame.quit()
-        bot.finished()
+        bot.finish()
         sys.exit(0)
 
 
 def clicked_exit_button_of_window(event_type, bot):
     if event_type == pygame.QUIT:
         pygame.quit()
-        bot.finished()
+        bot.finish()
         sys.exit(0)
