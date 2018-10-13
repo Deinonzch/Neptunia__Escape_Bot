@@ -7,6 +7,10 @@ class TestIsSwitch(TestCase):
         score = is_switch('Switch')
         self.assertEqual(score, True)
 
+    def test_is_switch_true_for_regex_5witch(self):
+        score = is_switch('5witch')
+        self.assertEqual(score, True)
+
     def test_is_switch_true_for_regex_switch(self):
         score = is_switch('switch')
         self.assertEqual(score, True)

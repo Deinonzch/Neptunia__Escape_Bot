@@ -7,6 +7,10 @@ class TestIsEscape(TestCase):
         score = is_escape('Escape')
         self.assertEqual(score, True)
 
+    def test_is_escape_true_for_regex_Esoape(self):
+        score = is_escape('Esoape')
+        self.assertEqual(score, True)
+
     def test_is_escape_true_for_regex_Esmane(self):
         score = is_escape('Esmane')
         self.assertEqual(score, True)

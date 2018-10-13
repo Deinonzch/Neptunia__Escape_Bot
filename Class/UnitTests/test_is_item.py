@@ -7,6 +7,10 @@ class TestIsItem(TestCase):
         score = is_item('Item')
         self.assertEqual(score, True)
 
+    def test_is_item_true_for_regex_Itern(self):
+        score = is_item('Itern')
+        self.assertEqual(score, True)
+
     def test_is_item_true_for_regex_item(self):
         score = is_item('item')
         self.assertEqual(score, True)

@@ -6,19 +6,20 @@ import pytesseract
 import PIL.ImageGrab
 import re
 import logging
+from Class.GetData import save_data_if_any_empty
 
 
 regex_spskills = re.compile(r'.*(SPSkills)')
 regex_exedrive = re.compile(r'.*(EXEDrive)')
 regex_attack = re.compile(r'.*(([Aa])ttack)')
 regex_defend = re.compile(r'.*(([Dd])ef[ae]nd)')
-regex_hddon = re.compile(r'.*(HDD[0O]N)')
-regex_switch = re.compile(r'.*(([Ss])witch)')
-regex_item = re.compile(r'.*(([Ii])tem)')
-regex_escape = re.compile(r'.*(([Ee])scape)|(Esmane)')
+regex_hddon_or_awakened = re.compile(r'.*(HDD[0O]N)|(Awak[eé]ned)')
+regex_switch = re.compile(r'.*(([Ss5])witch)')
+regex_item = re.compile(r'.*(([Ii])te(m)|(rn))')
+regex_escape = re.compile(r'.*(([Ee])s[co]ape)|(Esmane)')
 
 regexes_attack_menu_1 = [regex_spskills, regex_exedrive, regex_attack, regex_defend]
-regexes_attack_menu_2 = [regex_hddon, regex_switch, regex_item, regex_escape]
+regexes_attack_menu_2 = [regex_hddon_or_awakened, regex_switch, regex_item, regex_escape]
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Users\Deinonzch\AppData\Local\Tesseract-OCR\tesseract'
 
@@ -31,47 +32,36 @@ attack_menu_button_places = [attack_menu_button_1, attack_menu_button_2, attack_
 
 
 def is_first_menu_attack():
-    texts = get_texts_from_menu_attack()
-    if is_spskills(texts[0]) or is_exedrive(texts[1]) or is_attack(texts[2]) or is_defend(texts[3]):
+    text = get_texts_from_button_defend_or_escape()
+    if is_defend(text):
         return True
     else:
         return False
 
 
 def is_second_menu_attack():
-    texts = get_texts_from_menu_attack()
-    if is_hddon(texts[0]) or is_switch(texts[1]) or is_item(texts[2]) or is_escape(texts[3]):
+    text = get_texts_from_button_defend_or_escape()
+    if is_escape(text):
         return True
     else:
         return False
 
 
-def get_texts_from_menu_attack():
-    image = get_image()
-    texts = get_buttons_text_from(image)
-    return texts
-
-
-def get_image():
+def get_texts_from_button_defend_or_escape():
+    text = ''
     try:
-        image = PIL.ImageGrab.grab()
+        image = PIL.ImageGrab.grab(attack_menu_button_4)
+        text = get_button_text_from(image)
     except Exception as e:
         logging.exception(e)
-    return image
+    return text
 
 
-def get_buttons_text_from(image):
-    texts = []
-    for button_place in attack_menu_button_places:
-        button = get_button_from(image, button_place)
-        text = pytesseract.image_to_string(button).replace(' ', '')
-        texts.append(text)
-    return texts
-
-
-def get_button_from(image, place):
-    image_button = image.crop(place)
-    return image_button
+def get_button_text_from(image):
+    text = pytesseract.image_to_string(image).replace(' ', '')
+    # todo: delete save_data after tests
+    save_data_if_any_empty(text)
+    return text
 
 
 def is_spskills(text):
@@ -102,8 +92,8 @@ def is_defend(text):
         return False
 
 
-def is_hddon(text):
-    if re.findall(regex_hddon, text):
+def is_hddon_or_awakened(text):
+    if re.findall(regex_hddon_or_awakened, text):
         return True
     else:
         return False
