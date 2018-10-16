@@ -1,6 +1,4 @@
-from Class.Window import *
-import threading
-from Class.EscapedBot import *
+from Class.MainMenu import *
 
 pygame.init()
 
@@ -10,13 +8,10 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Game")
 
-bot = EscapedBot()
+pygame.display.flip()
 
-t = threading.Thread(target=bot.escape, name='thread1')
-s = threading.Thread(target=bot.listener, name='thread2')
-
-t.start()
-s.start()
+main_menu = MainMenu(screen, size)
 
 while True:
-    events(bot)
+    main_menu.draw()
+    main_menu.events()
