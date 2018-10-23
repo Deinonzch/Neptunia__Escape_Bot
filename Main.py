@@ -12,6 +12,7 @@ pygame.display.flip()
 
 main_menu = MainMenu(screen, size)
 
+main_menu.draw()
+
 while True:
-    main_menu.draw()
     main_menu.events()
