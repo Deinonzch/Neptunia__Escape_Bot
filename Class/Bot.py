@@ -2,7 +2,7 @@ import keyboard
 
 
 class Bot:
-    _undone = True
+    _undone = False
     _break = False
 
     def listener(self):
@@ -17,6 +17,10 @@ class Bot:
 
     def finish(self):
         self._undone = False
+
+    def run(self):
+        self._undone = True
+        self._break = False
 
     def _if_stop_key_is_pressed_do_break(self):
         if keyboard.is_pressed('alt+x'):
