@@ -52,3 +52,11 @@ class TestGetButtonTextFrom(TestCase):
         img = Image.open(file_to_open)
         text = get_button_text_from(img.crop(attack_menu_button_4))
         self.assertEqual(text, ')Defend')
+
+    def test_get_button_4_text_from_image_of_pulpit_6(self):
+        file_to_open = \
+            Path(r"C:/Users/Deinonzch/Documents/GitHub/Neptunia__Escape_Bot/Class/Data/Image/image_of_game_6.jpg")
+        img = Image.open(file_to_open)
+        text = get_button_text_from(img.crop(attack_menu_button_4))
+        print(text)
+        self.assertEqual(text, ')Defend')
