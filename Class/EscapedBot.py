@@ -19,6 +19,7 @@ class EscapedBot(Bot):
     def __escape_if_is_second_attack_menu(self):
         if is_second_menu_attack():
             self.__press_escape_key()
+            self.__attack_if_was_run_screen()
 
     def __attack_if_was_run_screen(self):
         if is_run_screen():
@@ -30,7 +31,7 @@ class EscapedBot(Bot):
 
     def __multiple_press_attack_key(self):
         time.sleep(1.8)
-        for i in range(0, 150):
+        for i in range(0, 50):
             if self._break:
                 break
             self.__press_attack_key()
