@@ -7,7 +7,7 @@ from pathlib import Path
 from Class.ImageRecognition import get_button_text_from, attack_menu_button_4, place_of_run_text
 
 # ')SPSkills', '\EXEDrive', 'Attack', ')Defend'
-# ')HDD0N', 'Switch', 'Item', ')Esoape'
+# ')HDD0N', 'Switch', 'Item', ')Escape'
 
 
 class TestGetButtonTextFrom(TestCase):
@@ -23,7 +23,7 @@ class TestGetButtonTextFrom(TestCase):
             Path(r"C:/Users/Deinonzch/Documents/GitHub/Neptunia__Escape_Bot/Class/Data/Image/image_of_game_2.jpg")
         img = Image.open(file_to_open)
         text = get_button_text_from(img.crop(attack_menu_button_4))
-        self.assertEqual(text, ')Esoape')
+        self.assertEqual(text, ')Escape')
 
     def test_get_button_4_text_from_image_of_pulpit(self):
         file_to_open = \
