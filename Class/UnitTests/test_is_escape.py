@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Class.ImageRecognition import is_escape
+from Class.OCR.ImageRecognition import is_escape
 
 
 class TestIsEscape(TestCase):

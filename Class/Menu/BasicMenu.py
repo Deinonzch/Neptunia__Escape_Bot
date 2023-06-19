@@ -1,7 +1,7 @@
-from Class.Menu import *
+from Class.Menu.Menu import *
 
 
-class BotMenu(Menu):
+class BasicMenu(Menu):
     _done = False
 
     def _run_menu(self):

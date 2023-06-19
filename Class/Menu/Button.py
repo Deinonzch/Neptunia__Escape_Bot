@@ -2,7 +2,7 @@ import pygame
 
 
 class Button:
-    __length = 50
+    __length = 100
     __width = 15
     __color_of_unclicked = (150, 150, 150)
     __color_of_clicked = (10, 150, 10)

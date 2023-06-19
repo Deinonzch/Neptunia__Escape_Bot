@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Class.ImageRecognition import is_second_menu_attack
+from Class.OCR.ImageRecognition import is_second_menu_attack
 
 
 class TestIaSecondMenuAttack(TestCase):

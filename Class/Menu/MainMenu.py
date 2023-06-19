@@ -1,5 +1,5 @@
-from Class.ListOfBotsMenu import *
-from Class.Menu import *
+from Class.Menu.ListOfBotsMenu import *
+from Class.Menu.Menu import *
 import time
 
 

@@ -1,4 +1,4 @@
-from Class.MainMenu import *
+from Class.Menu.MainMenu import *
 
 pygame.init()
 

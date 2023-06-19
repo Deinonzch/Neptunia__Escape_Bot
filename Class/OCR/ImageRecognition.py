@@ -22,16 +22,18 @@ regex_have = re.compile(r'([Hh]ave)')
 regexes_attack_menu_1 = [regex_spskills, regex_exedrive, regex_attack, regex_defend]
 regexes_attack_menu_2 = [regex_hddon_or_awakened, regex_switch, regex_item, regex_escape]
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Users\Deinonzch\AppData\Local\Tesseract-OCR\tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
 attack_menu_button_1 = (1570, 650, 1750, 720)
 attack_menu_button_2 = (1540, 700, 1700, 760)
 attack_menu_button_3 = (1510, 750, 1650, 830)
-attack_menu_button_4 = (1470, 810, 1590, 880)
+attack_menu_button_4 = (1477, 815, 1580, 880)
 
 place_of_have_text = (1185, 150, 1270, 200)
 
-place_of_run_text = (775, 25, 1125, 75)
+place_of_run_text = (875, 25, 1045, 75)
+
+place_of_failed_text = (775, 25, 1145, 75)
 
 attack_menu_button_places = [attack_menu_button_1, attack_menu_button_2, attack_menu_button_3, attack_menu_button_4]
 

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Class.ImageRecognition import is_item
+from Class.OCR.ImageRecognition import is_item
 
 
 class TestIsItem(TestCase):

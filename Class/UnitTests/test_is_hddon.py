@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Class.ImageRecognition import is_hddon_or_awakened
+from Class.OCR.ImageRecognition import is_hddon_or_awakened
 
 
 class TestIsHddon(TestCase):

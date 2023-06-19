@@ -1,5 +1,5 @@
 import unittest
-from Class.ImageRecognition import regexes_attack_menu_1, regexes_attack_menu_2
+from Class.OCR.ImageRecognition import regexes_attack_menu_1, regexes_attack_menu_2
 
 
 class RegexImageRecognition(unittest.TestCase):

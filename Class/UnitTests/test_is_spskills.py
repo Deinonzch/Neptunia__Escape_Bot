@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Class.ImageRecognition import is_spskills
+from Class.OCR.ImageRecognition import is_spskills
 
 
 class TestIsSpskills(TestCase):

@@ -1,6 +1,5 @@
-from Class.ImageRecognition import is_first_menu_attack, is_second_menu_attack, is_run_screen, i_am_in_a_inventory, \
-    is_failed_screen
-from Class.Bot import *
+from Class.OCR.ImageRecognition import is_first_menu_attack, is_second_menu_attack, is_run_screen, i_am_in_a_inventory
+from Class.Bot.Bot import *
 import time
 
 
